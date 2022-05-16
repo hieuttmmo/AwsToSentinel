@@ -1,5 +1,27 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {}
-}
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "AwsAccessKeyID": {
+            "value": "AKIXXXX" 
+        },
+        "AwsSecretAccessKey": {
+            "value": "XXXXX" 
+        },
+        "AwsRegionName": {
+            "value": "ap-southeat-1" 
+        },
+        "InspectorS3Bucket": {
+            "value": "s3://" 
+        },
+        "MacieS3Bucket": {
+            "value": "s3://" 
+        },
+        "WorkspaceID": {
+            "value": "X-X-X-X-X" 
+        },
+        "WorkspaceKey": {
+            "value": "XXXXX" 
+        }
+    }
+  }
