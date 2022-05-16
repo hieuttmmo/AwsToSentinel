@@ -23,7 +23,7 @@
             }
         },
         "AwsSecretAccessKey": {
-            "type": "securestring",
+            "type": "string",
             "metadata": {
                 "description": "Input your AWS Secret Access Key"
             }
@@ -53,7 +53,7 @@
             }
         },
         "WorkspaceKey": {
-            "type": "securestring",
+            "type": "string",
             "metadata": {
                 "description": "Provide the primary key to this Log Analytics workspace"
             }
