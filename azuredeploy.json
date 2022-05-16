@@ -1,5 +1,5 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appName": {
@@ -12,51 +12,40 @@
         "storageAccountType": {
             "type": "string",
             "defaultValue": "Standard_LRS",
-            "allowedValues": [
-                "Standard_LRS",
-                "Standard_GRS",
-                "Standard_RAGRS"
-            ],
             "metadata": {
                 "description": "Storage Account type"
             }
         },
-        "S3Bucket": {
+        "AwsAccessKeyID": {
             "type": "string",
             "metadata": {
-                "description": "Name of S3 Bucket"
+                "description": "Input your AWS Access Key ID"
             }
         },
-        "AwsAccessKey": {
-            "type": "string",
+        "AwsSecretAccessKey": {
+            "type": "securestring",
             "metadata": {
-                "description": "Input your Aws Access Key"
+                "description": "Input your AWS Secret Access Key"
             }
         },
-        "AwsShareKey": {
+        "AwsRegionName": {
             "type": "string",
             "metadata": {
-                "description": "Input your Aws Share Key"
+                "description": "Input your AWS default region"
             }
         },
-        "ServicePrincipalID": {
+        "InspectorS3Bucket": {
             "type": "string",
             "metadata": {
-                "description": "Azure service principal id"
+                "description": "AWS Inspector S3 Bucket"
             }
         },
-        "ServicePrincipalSecret": {
+        "MacieS3Bucket": {
             "type": "string",
             "metadata": {
-                "description": "Azure service principal secret"
+                "description": "AWS Macie S3 Bucket"
             }
-        },
-        "TenantID": {
-            "type": "string",
-            "metadata": {
-                "description": "Tenant ID"
-            }
-        },		
+        },            		
         "WorkspaceID": {
             "type": "string",
             "metadata": {
@@ -118,40 +107,40 @@
                      "value":"[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
                   },
                   {
-                     "name":"consoleIP",
-                     "value":"[parameters('QRadarManagementIP')]"
+                     "name":"AWS_ACCESS_KEY_ID",
+                     "value":"[parameters('AwsAccessKeyID')]"
                   },
                   {
-                     "name":"token",
-                     "value":"[parameters('QRadarToken')]"
+                     "name":"AWS_REGION_NAME",
+                     "value":"[parameters('AwsRegionName')]"
                   },
                   {
-                     "name":"tenant",
-                     "value":"[parameters('TenantID')]"
+                     "name":"AWS_SECRET_ACCESS_KEY",
+                     "value":"[parameters('AwsSecretAccessKey')]"
+                  },
+                  {
+                     "name":"AWS_INSPECTOR_S3_BUCKET",
+                     "value":"[parameters('InspectorS3Bucket')]"
+                  },
+                  {
+                     "name":"AWS_MACIE_S3_BUCKET",
+                     "value":"[parameters('MacieS3Bucket')]"
                   },
                   {
                      "name":"WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
                      "value":"[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value)]"
                   },
                   {
-                     "name":"sp_id",
-                     "value":"[parameters('ServicePrincipalID')]"
-                  },
-                  {
-                     "name":"sp_secret",
-                     "value":"[parameters('ServicePrincipalSecret')]"
-                  },
-                  {
-                     "name":"customerID",
+                     "name":"CUSTOMER_ID",
                      "value":"[parameters('WorkspaceID')]"
                   },
                   {
-                     "name":"sharedKey",
+                     "name":"SHARED_KEY",
                      "value":"[parameters('WorkspaceKey')]"
                   },
                   {
                      "name":"WEBSITE_RUN_FROM_PACKAGE",
-                     "value":"https://github.com/tungnt77/ARM-templates/raw/main/TimeTrigger.zip"
+                     "value":"https://github.com/tungnt77/AwsToSentinel/raw/main/Trigger.zip"
                   },
                   {
                      "name":"SCM_DO_BUILD_DURING_DEPLOYMENT",
