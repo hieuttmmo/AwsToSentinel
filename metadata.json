@@ -1,0 +1,12 @@
+{
+    "$schema": "https://aka.ms/azure-quickstart-templates-metadata-schema#",
+    "type": "QuickStart",
+    "itemDisplayName": "Integration Inspector and Macie Template",
+    "description": "Template that creates a ",
+    "summary": "A template that creates a virtual network and subnets then deploys an Integration Service Environment (ISE) including non-native connectors.",
+    "githubUsername": "hieuttmmo",
+    "dateUpdated": "2022-05-27",
+    "environments": [
+      "AzureCloud"
+    ]
+  }
