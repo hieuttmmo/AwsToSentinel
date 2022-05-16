@@ -3,25 +3,25 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "AwsAccessKeyID": {
-            "value": "AKIXXXX" 
+            "value": "GEN-UNIQUE" 
         },
         "AwsSecretAccessKey": {
-            "value": "XXXXX" 
+            "value": "GEN-PASSWORD" 
         },
         "AwsRegionName": {
-            "value": "ap-southeat-1" 
+            "value": "GEN-UNIQUE" 
         },
         "InspectorS3Bucket": {
-            "value": "s3://" 
+            "value": "GEN-UNIQUE" 
         },
         "MacieS3Bucket": {
-            "value": "s3://" 
+            "value": "GEN-UNIQUE" 
         },
         "WorkspaceID": {
-            "value": "X-X-X-X-X" 
+            "value": "GEN-UNIQUE" 
         },
         "WorkspaceKey": {
-            "value": "XXXXX" 
+            "value": "GEN-PASSWORD" 
         }
     }
   }
